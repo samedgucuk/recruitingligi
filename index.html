@@ -46,7 +46,7 @@
             box-shadow: 0 10px 30px -10px rgba(0, 84, 166, 0.2);
             margin-bottom: 2rem;
             text-align: center;
-            border: 1px solid rgba(255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-bottom: 5px solid;
             border-image: linear-gradient(90deg, var(--remax-blue), var(--remax-red)) 1;
         }
@@ -115,7 +115,6 @@
             display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem;
             background-color: rgba(248, 250, 252, 0.8); border-radius: 0.5rem; margin-bottom: 0.5rem; font-weight: 500;
         }
-        /* 2. Aşamayı vurgula */
         .schedule-list li.active-stage {
             background-color: var(--remax-blue);
             color: white;
@@ -187,20 +186,14 @@
         .top-75:hover { background-color: #dcfce7; }
         .eliminated:hover { background-color: #fef2f2; }
         
-        /* 1. Aşama Sonuçları için Özel Stiller */
-        tr[data-rank="1"], tr[data-rank="2"] { 
-            background: linear-gradient(90deg, #fef9c3, #f0fdf4); 
-        }
-        tr[data-rank="3"] { 
-            background: linear-gradient(90deg, #fbe9d7, #f0fdf4); 
-        }
+        /* Special styles for top 2 (Gold Ticket Winners) */
+        tr[data-rank="1"] { background: linear-gradient(90deg, #fef9c3, #f0fdf4); }
+        tr[data-rank="2"] { background: linear-gradient(90deg, #fef9c3, #f0fdf4); } /* İkisi de altın bilet */
+        tr[data-rank="3"] { background: linear-gradient(90deg, #fbe9d7, #f0fdf4); }
         
-        tr[data-rank="1"] .score, tr[data-rank="2"] .score { 
-            color: #ca8a04; 
-        }
-        tr[data-rank="3"] .score { 
-            color: #c2410c; 
-        }
+        tr[data-rank="1"] .score { color: #ca8a04; }
+        tr[data-rank="2"] .score { color: #ca8a04; } /* İkisi de altın bilet */
+        tr[data-rank="3"] .score { color: #c2410c; }
 
 
         .score { font-weight: 700; font-size: 1.1rem; }
@@ -218,25 +211,25 @@
         <div class="header">
             <img src="https://storage.mlcdn.com/account_image/1052736/VcYiFNLIf9CH3wUdCSA6PK5XjogFfc2XvO3Ge668.png" alt="RE/MAX Logo" class="logo-remax">
             <img src="https://storage.mlcdn.com/account_image/1052736/odl0FSz3Gtp1hQZcTzHFHdbkKMWap0OTarTRUR3X.png" alt="Recruiting Ligi Logosu" class="logo-league">
-            <p class="flashing-title" id="flashing-title">🔥 2. AŞAMA BAŞLADI! 🔥</p>
+            <p class="flashing-title" id="flashing-title">🔥 3. AŞAMA BAŞLADI! 🔥</p>
         </div>
 
         <div class="card">
-            <h2>Turnuva Kuralları - 2. Aşama</h2>
+            <h2>Turnuva Kuralları - 3. Aşama</h2>
             <p>
-                1. Aşamayı başarıyla tamamlayan <strong>110</strong> ofis 2. Aşamaya yükseldi. Bu turda en başarılı <strong>75</strong> ofis bir sonraki tura yükselecek. Tam <strong>35</strong> takım bu turda elenecek. Rekabet artıyor!
+                2. Aşamayı başarıyla tamamlayan <strong>81</strong> ofis 3. Aşamaya yükseldi. Bu turda en başarılı <strong>30</strong> ofis bir sonraki tura yükselecek. Tam <strong>51</strong> takım bu turda elenecek. Final yaklaşıyor!
             </p>
             <div class="stats-container">
                  <div class="stat">
-                    <p class="number number-blue" data-target="110">0</p>
+                    <p class="number number-blue" data-target="81">0</p>
                     <p class="label">Başlayan Takım</p>
                 </div>
                 <div class="stat">
-                    <p class="number number-green" data-target="75">0</p>
+                    <p class="number number-green" data-target="30">0</p>
                     <p class="label">Turu Geçecek</p>
                 </div>
                 <div class="stat">
-                    <p class="number number-red" data-target="35">0</p>
+                    <p class="number number-red" data-target="51">0</p>
                     <p class="label">Elenecek Takım</p>
                 </div>
             </div>
@@ -249,11 +242,35 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                 </svg>
                 <p>
-                    <strong>3 Kasım'da</strong> yaptığınız recruiting'ler, <strong>4 Kasım - 9 Kasım</strong> haftasına eklenecektir.
+                    <strong>10 Kasım'da</strong> yaptığınız recruiting'ler, <strong>11 Kasım - 16 Kasım</strong> haftasına eklenecektir.
                     <br><br>
-                    <strong>75 Ofis çıkmaması durumunda</strong> sonraki aşamaya bu hafta recruiting yapan ofis sayısı ile geçilecektir.
+                    <strong>30 Ofis çıkmaması durumunda</strong> sonraki aşamaya bu hafta recruiting yapan ofis sayısı ile geçilecektir.
                 </p>
             </div>
+
+            <div class="divider"></div>
+
+            <h3>Eşitlik Durumu Kuralı</h3>
+            <div class="special-rule" style="background-color: #fffbeb; border-left-color: #f59e0b;">
+                <svg style="color: #f59e0b;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.153.34c-1.096 0-2.14-.23-3.162-.682M4.5 5.47c1.01.143 2.01.317 3 .52m-3-.52l-2.62 10.726c.122.499.106 1.028.589 1.202a5.989 5.989 0 002.153.34c1.096 0 2.14-.23 3.162-.682" />
+                </svg>
+                <p>
+                    Puanlarda eşitlik olması durumunda, sıralamayı belirlemek için ofislerin <strong>2025 Yılı Genel Recruiting</strong> sayısına bakılacaktır.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Turnuva Takvimi</h2>
+            <ul class="schedule-list">
+                <li><span><s>296 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>28 Ekim - 2 Kasım</s> (TAMAMLANDI)</span></li>
+                <li><span><s>110 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>4 Kasım - 9 Kasım</s> (TAMAMLANDI)</span></li>
+                <li class="active-stage"><span>81 Ofis</span><span style="font-weight: 700;">11 Kasım - 16 Kasım</span></li>
+                <li><span>30 Ofis</span><span style="font-weight: 600;">18 Kasım - 23 Kasım</span></li>
+                <li><span>15 Ofis</span><span style="font-weight: 600;">25 Kasım - 30 Kasım</span></li>
+                <li class="champion"><span>🏆 1 ŞAMPİYON 🏆</span></li>
+            </ul>
             
             <div class="divider"></div>
 
@@ -275,7 +292,7 @@
             <ul class="prize-list">
                 <li>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.975-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.05 10.1c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-                    <span>Bu özel ligi unutmaz kılacak bir <strong>KUPA</strong></span>
+                    <span>Bu özel ligi unutulmaz kılacak bir <strong>KUPA</strong></span>
                 </li>
                 <li>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" /></svg>
@@ -294,8 +311,8 @@
 
         <div class="table-wrapper">
             <div class="table-header">
-                <h2 id="table-title">Puan Tablosu - 1. Aşama Sonuçları</h2>
-                <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">10 Ekim - 2 Kasım</p>
+                <h2 id="table-title">Puan Tablosu - 2. Aşama Sonuçları</h2>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">4 Kasım - 9 Kasım</p>
             </div>
             <div class="table-container">
                 <table>
@@ -324,123 +341,91 @@
             
             const flashingTitle = document.getElementById('flashing-title');
             if (flashingTitle) {
-                const titleText = "2. AŞAMA BAŞLADI!";
+                const titleText = "3. AŞAMA BAŞLADI!";
                 flashingTitle.innerHTML = `🔥 ${titleText} 🔥`;
             }
 
             // SKORLARI BURADAN GÜNCELLEYİN
-            // 1. Aşama Sonuçları (113 Ofis) - KULLANICININ İSTEDİĞİ SIRA KORUNDU
+            // 2. Aşama Sonuçları (81 Ofis) - KULLANICININ İSTEDİĞİ SIRA KORUNDU
+            // *** HATA DÜZELTİLDİ ***
             const initialData = [
-                { "name": "RE/MAX Note", "score": 9 },
-                { "name": "RE/MAX İnci", "score": 7 },
-                { "name": "RE/MAX Balance", "score": 6 },
-                { "name": "RE/MAX Paraf", "score": 6 },
-                { "name": "RE/MAX Hane", "score": 5 },
-                { "name": "RE/MAX Mavi", "score": 5 },
-                { "name": "RE/MAX Story", "score": 5 },
-                { "name": "RE/MAX Exclusive", "score": 5 },
-                { "name": "RE/MAX Smart", "score": 5 },
-                { "name": "RE/MAX Goal", "score": 5 },
-                { "name": "RE/MAX Avlu", "score": 5 },
+                { "name": "RE/MAX Note", "score": 5 },
                 { "name": "RE/MAX Lotus", "score": 4 },
-                { "name": "RE/MAX Advantage", "score": 4 },
-                { "name": "RE/MAX Mod", "score": 4 },
-                { "name": "RE/MAX Master", "score": 4 },
-                { "name": "RE/MAX Çarşı", "score": 4 },
-                { "name": "RE/MAX Boss", "score": 4 },
-                { "name": "RE/MAX Değişim", "score": 4 },
-                { "name": "RE/MAX Cadde", "score": 3 },
-                { "name": "RE/MAX Saray", "score": 3 },
-                { "name": "RE/MAX Kuzey", "score": 3 },
+                { "name": "RE/MAX Mavi", "score": 4 },
+                { "name": "RE/MAX Dream", "score": 4 },
+                { "name": "RE/MAX Avlu", "score": 4 },
+                { "name": "RE/MAX City", "score": 3 },
+                { "name": "RE/MAX Deha", "score": 3 },
                 { "name": "RE/MAX Kule", "score": 3 },
-                { "name": "RE/MAX Best", "score": 3 },
-                { "name": "RE/MAX Kuvars 2", "score": 3 },
-                { "name": "RE/MAX Mutlu", "score": 3 },
-                { "name": "RE/MAX Enjoy", "score": 2 },
-                { "name": "RE/MAX Aqua", "score": 2 },
+                { "name": "RE/MAX Smart", "score": 3 },
+                { "name": "RE/MAX Beyaz", "score": 3 },
+                { "name": "RE/MAX Dia", "score": 3 },
+                { "name": "RE/MAX Air", "score": 3 },
+                { "name": "RE/MAX Deluxe", "score": 3 },
                 { "name": "RE/MAX Müjde", "score": 2 },
-                { "name": "RE/MAX Metropolitan", "score": 2 },
-                { "name": "RE/MAX Arz", "score": 2 },
-                { "name": "RE/MAX True", "score": 2 },
+                { "name": "RE/MAX Enjoy", "score": 2 },
+                { "name": "RE/MAX Balance", "score": 2 },
+                { "name": "RE/MAX Neva", "score": 2 },
+                { "name": "RE/MAX Model 2", "score": 2 }, // HATA BURADAYDI, DÜZELTİLDİ
+                { "name": "RE/MAX Eksen", "score": 2 },
+                { "name": "RE/MAX Mod", "score": 2 },
                 { "name": "RE/MAX Now", "score": 2 },
-                { "name": "RE/MAX Piramit", "score": 2 },
-                { "name": "RE/MAX Beyaz", "score": 2 },
-                { "name": "RE/MAX Gold", "score": 2 },
-                { "name": "RE/MAX Mercan", "score": 2 },
-                { "name": "RE/MAX Dia", "score": 2 },
-                { "name": "RE/MAX İlyada 3", "score": 2 },
-                { "name": "RE/MAX Akarat", "score": 2 },
+                { "name": "RE/MAX Goal", "score": 2 },
+                { "name": "RE/MAX Deniz", "score": 2 },
                 { "name": "RE/MAX Toprak", "score": 2 },
-                { "name": "RE/MAX Yıldız", "score": 2 },
-                { "name": "RE/MAX First", "score": 2 },
-                { "name": "RE/MAX Tecrübe 2", "score": 2 },
-                { "name": "RE/MAX Plus 2", "score": 2 },
-                { "name": "RE/MAX Elma", "score": 2 },
-                { "name": "RE/MAX Alpha", "score": 2 },
-                { "name": "RE/MAX Deluxe", "score": 2 },
-                { "name": "RE/MAX Vip", "score": 2 },
-                { "name": "RE/MAX Öncü", "score": 2 },
-                { "name": "RE/MAX Always", "score": 2 },
-                { "name": "RE/MAX Anı", "score": 2 },
-                { "name": "RE/MAX Pier", "score": 2 },
-                { "name": "RE/MAX Yelken", "score": 2 },
-                { "name": "RE/MAX Su", "score": 2 },
-                { "name": "RE/MAX Zafer", "score": 2 },
-                { "name": "RE/MAX Badem", "score": 2 },
-                { "name": "RE/MAX City", "score": 1 },
-                { "name": "RE/MAX Vogue", "score": 1 },
-                { "name": "RE/MAX 7tepe", "score": 1 },
-                { "name": "RE/MAX Neva", "score": 1 },
-                { "name": "RE/MAX Model", "score": 1 },
+                { "name": "RE/MAX Gelişim", "score": 2 },
+                { "name": "RE/MAX Arena", "score": 2 },
+                { "name": "RE/MAX Ekspres", "score": 2 },
+                { "name": "RE/MAX Pro", "score": 2 },
+                { "name": "RE/MAX İkon", "score": 2 },
+                { "name": "RE/MAX Penta", "score": 2 },
+                { "name": "RE/MAX Area", "score": 2 },
+                { "name": "RE/MAX Platinium", "score": 2 },
+                { "name": "RE/MAX Select", "score": 2 },
+                { "name": "RE/MAX Hermes", "score": 2 },
+                { "name": "RE/MAX Hane", "score": 1 },
+                { "name": "RE/MAX İnci", "score": 1 },
+                { "name": "RE/MAX Land", "score": 1 },
                 { "name": "RE/MAX Winners", "score": 1 },
+                { "name": "RE/MAX Parla", "score": 1 },
+                { "name": "RE/MAX Advantage", "score": 1 },
                 { "name": "RE/MAX Sistem", "score": 1 },
-                { "name": "RE/MAX Liman", "score": 1 },
-                { "name": "RE/MAX Deha", "score": 1 },
+                { "name": "RE/MAX True", "score": 1 },
                 { "name": "RE/MAX Time", "score": 1 },
-                { "name": "RE/MAX Sonuç", "score": 1 },
-                { "name": "RE/MAX Beta", "score": 1 },
-                { "name": "RE/MAX Mid", "score": 1 },
-                { "name": "RE/MAX Maximum", "score": 1 },
-                { "name": "RE/MAX Doğu", "score": 1 },
-                { "name": "RE/MAX Fi", "score": 1 },
-                { "name": "RE/MAX Nest", "score": 1 },
-                { "name": "RE/MAX Kaya", "score": 1 },
+                { "name": "RE/MAX Mega", "score": 1 },
+                { "name": "RE/MAX Galaksi", "score": 1 },
+                { "name": "RE/MAX Pasha", "score": 1 },
+                { "name": "RE/MAX Mercan", "score": 1 },
+                { "name": "RE/MAX İlyada 3", "score": 1 },
+                { "name": "RE/MAX Happy 2", "score": 1 },
+                { "name": "RE/MAX Fark", "score": 1 },
+                { "name": "RE/MAX Lot", "score": 1 },
                 { "name": "RE/MAX Astyle", "score": 1 },
-                { "name": "RE/MAX Lavanda", "score": 1 },
-                { "name": "RE/MAX Ritim", "score": 1 },
-                { "name": "RE/MAX Çakra", "score": 1 },
-                { "name": "RE/MAX Pro 2", "score": 1 },
+                { "name": "RE/MAX Tower", "score": 1 },
+                { "name": "RE/MAX Live", "score": 1 },
+                { "name": "RE/MAX Mülk", "score": 1 },
                 { "name": "RE/MAX Ashill", "score": 1 },
-                { "name": "RE/MAX Abc 2", "score": 1 },
-                { "name": "RE/MAX Plus", "score": 1 },
-                { "name": "RE/MAX Denge", "score": 1 },
-                { "name": "RE/MAX Premium", "score": 1 },
-                { "name": "RE/MAX Air", "score": 1 },
-                { "name": "RE/MAX Pusula", "score": 1 },
+                { "name": "RE/MAX First", "score": 1 },
+                { "name": "RE/MAX İlke", "score": 1 },
+                { "name": "RE/MAX Yıldız", "score": 1 },
+                { "name": "RE/MAX Excellence", "score": 1 },
+                { "name": "RE/MAX Kare", "score": 1 },
+                { "name": "RE/MAX Oksijen", "score": 1 },
+                { "name": "RE/MAX Mutlu", "score": 1 },
+                { "name": "RE/MAX İlyada", "score": 1 },
+                { "name": "RE/MAX Kuvars 2", "score": 1 },
                 { "name": "RE/MAX Ay", "score": 1 },
-                { "name": "RE/MAX Evvego", "score": 1 },
-                { "name": "RE/MAX Cool", "score": 1 },
-                { "name": "RE/MAX Gelişim 2", "score": 1 },
-                { "name": "RE/MAX Quality", "score": 1 },
-                { "name": "RE/MAX Omega", "score": 1 },
-                { "name": "RE/MAX One", "score": 1 },
+                { "name": "RE/MAX Hedef", "score": 1 },
+                { "name": "RE/MAX Arma", "score": 1 },
+                { "name": "RE/MAX Prestige", "score": 1 },
                 { "name": "RE/MAX Key", "score": 1 },
-                { "name": "RE/MAX Penta", "score": 1 },
-                { "name": "RE/MAX Area", "score": 1 },
-                { "name": "RE/MAX Şehir 2", "score": 1 },
+                { "name": "RE/MAX Boss", "score": 1 },
+                { "name": "RE/MAX Capella", "score": 1 },
+                { "name": "RE/MAX Değişim", "score": 1 },
                 { "name": "RE/MAX Selenga", "score": 1 },
-                { "name": "RE/MAX Yarımada", "score": 1 },
                 { "name": "RE/MAX We", "score": 1 },
-                { "name": "RE/MAX Hür", "score": 1 },
-                { "name": "RE/MAX Idea", "score": 1 },
-                { "name": "RE/MAX Terminal", "score": 1 },
-                { "name": "RE/MAX Dora", "score": 1 },
-                { "name": "RE/MAX Mahal", "score": 1 },
-                { "name": "RE/MAX Gökçem", "score": 1 },
-                { "name": "RE/MAX Zeta 3", "score": 1 },
-                { "name": "RE/MAX Pars", "score": 1 },
-                { "name": "RE/MAX Elit", "score": 1 },
-                { "name": "RE/MAX Alkent", "score": 1 }
+                { "name": "RE/MAX Yelken", "score": 1 },
+                { "name": "RE/MAX Meydan", "score": 1 }
             ];
 
 
@@ -448,11 +433,14 @@
             let officeData = [];
 
             function renderLeaderboard() {
-                // SIRALAMA FONKSİYONU KALDIRILDI
+                // SIRALAMA FONKSİYONU KULLANICININ İSTEĞİ ÜZERİNE KASITLI OLARAK KAPATILDI
                 // officeData.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
                 leaderboardBody.innerHTML = '';
                 
-                const qualifyingCount = 75; // 2. Turda turu geçecek ofis sayısı
+                // Bu liste 2. Aşama sonuçlarıdır. 
+                // Kurala göre (75 ofis çıkmazsa...) 81 ofis 3. tura kalmıştır.
+                // Bu yüzden listedeki herkesi (81 kişiyi) 'qualifier' (top-75) olarak işaretliyoruz.
+                const qualifyingCount = 81; 
                 
                 officeData.forEach((office, index) => {
                     const rank = index + 1;
@@ -463,10 +451,10 @@
                     row.setAttribute('data-rank', rank);
 
                     let rankIcon = '';
-                    // 1. Aşama Galipleri
+                    // 2. Aşama Galipleri (Yeni Bilet Kazananlar)
                     if (rank === 1 && office.score > 0) rankIcon = '🥇 🎫';
                     else if (rank === 2 && office.score > 0) rankIcon = '🥈 🎫';
-                    else if (rank === 3 && office.score > 0) rankIcon = ''; // 3. Madalya kaldırıldı
+                    // 3. madalya kaldırıldı
 
                     row.innerHTML = `
                         <td>${rank} ${rankIcon}</td>
@@ -536,7 +524,3 @@
     </script>
 </body>
 </html>
-
-
-
-
