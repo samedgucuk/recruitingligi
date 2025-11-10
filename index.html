@@ -217,11 +217,11 @@
         <div class="card">
             <h2>Turnuva Kuralları - 3. Aşama</h2>
             <p>
-                2. Aşamayı başarıyla tamamlayan <strong>81</strong> ofis 3. Aşamaya yükseldi. Bu turda en başarılı <strong>30</strong> ofis bir sonraki tura yükselecek. Tam <strong>51</strong> takım bu turda elenecek. Final yaklaşıyor!
+                2. Aşamayı başarıyla tamamlayan <strong>77</strong> ofis 3. Aşamaya yükseldi. Bu turda en başarılı <strong>30</strong> ofis bir sonraki tura yükselecek. Tam <strong>47</strong> takım bu turda elenecek. Final yaklaşıyor!
             </p>
             <div class="stats-container">
                  <div class="stat">
-                    <p class="number number-blue" data-target="81">0</p>
+                    <p class="number number-blue" data-target="77">0</p>
                     <p class="label">Başlayan Takım</p>
                 </div>
                 <div class="stat">
@@ -229,7 +229,7 @@
                     <p class="label">Turu Geçecek</p>
                 </div>
                 <div class="stat">
-                    <p class="number number-red" data-target="51">0</p>
+                    <p class="number number-red" data-target="47">0</p>
                     <p class="label">Elenecek Takım</p>
                 </div>
             </div>
@@ -266,7 +266,7 @@
             <ul class="schedule-list">
                 <li><span><s>296 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>28 Ekim - 2 Kasım</s> (TAMAMLANDI)</span></li>
                 <li><span><s>110 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>4 Kasım - 9 Kasım</s> (TAMAMLANDI)</span></li>
-                <li class="active-stage"><span>81 Ofis</span><span style="font-weight: 700;">11 Kasım - 16 Kasım</span></li>
+                <li class="active-stage"><span>77 Ofis</span><span style="font-weight: 700;">11 Kasım - 16 Kasım</span></li>
                 <li><span>30 Ofis</span><span style="font-weight: 600;">18 Kasım - 23 Kasım</span></li>
                 <li><span>15 Ofis</span><span style="font-weight: 600;">25 Kasım - 30 Kasım</span></li>
                 <li class="champion"><span>🏆 1 ŞAMPİYON 🏆</span></li>
@@ -347,7 +347,6 @@
 
             // SKORLARI BURADAN GÜNCELLEYİN
             // 2. Aşama Sonuçları (81 Ofis) - KULLANICININ İSTEDİĞİ SIRA KORUNDU
-            // *** HATA DÜZELTİLDİ ***
             const initialData = [
                 { "name": "RE/MAX Note", "score": 5 },
                 { "name": "RE/MAX Lotus", "score": 4 },
@@ -366,7 +365,7 @@
                 { "name": "RE/MAX Enjoy", "score": 2 },
                 { "name": "RE/MAX Balance", "score": 2 },
                 { "name": "RE/MAX Neva", "score": 2 },
-                { "name": "RE/MAX Model 2", "score": 2 }, // HATA BURADAYDI, DÜZELTİLDİ
+                { "name": "RE/MAX Model 2", "score": 2 }, 
                 { "name": "RE/MAX Eksen", "score": 2 },
                 { "name": "RE/MAX Mod", "score": 2 },
                 { "name": "RE/MAX Now", "score": 2 },
@@ -437,17 +436,16 @@
                 // officeData.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
                 leaderboardBody.innerHTML = '';
                 
-                // Bu liste 2. Aşama sonuçlarıdır. 
-                // Kurala göre (75 ofis çıkmazsa...) 81 ofis 3. tura kalmıştır.
-                // Bu yüzden listedeki herkesi (81 kişiyi) 'qualifier' (top-75) olarak işaretliyoruz.
-                const qualifyingCount = 81; 
+                // 3. Tura geçen 77 ofisi belirle
+                const qualifyingCount = 77; 
                 
                 officeData.forEach((office, index) => {
                     const rank = index + 1;
                     const row = document.createElement('tr');
                     
                     const isQualifying = rank <= qualifyingCount;
-                    row.className = isQualifying ? 'top-75' : 'eliminated';
+                    // 77 ofis geçti, 81 ofislik listeden son 4'ü elendi
+                    row.className = isQualifying ? 'top-75' : 'eliminated'; // top-75 sınıfı yeşili temsil ediyor
                     row.setAttribute('data-rank', rank);
 
                     let rankIcon = '';
