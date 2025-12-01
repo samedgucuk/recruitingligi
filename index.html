@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RE/MAX Recruiting Ligi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>RE/MAX Recruiting Ligi - ŞAMPİYON BELLİ OLDU!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --remax-blue: #0054a6;
             --remax-red: #d51e27;
-            --remax-gold: #fde047; /* Daha parlak bir altın */
+            --remax-gold: #f59e0b; /* Daha koyu, zengin altın */
             --light-gray: #f1f5f9;
             --dark-gray: #0f172a;
             --medium-gray: #64748b;
@@ -30,6 +30,7 @@
             color: var(--dark-gray);
             margin: 0;
             padding: 1.5rem 1rem;
+            overflow-x: hidden;
         }
         
         .container {
@@ -39,181 +40,192 @@
         }
 
         .header {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 1.25rem;
-            box-shadow: 0 10px 30px -10px rgba(0, 84, 166, 0.2);
+            padding: 2.5rem 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 50px -12px rgba(245, 158, 11, 0.3); /* Altın gölge */
             margin-bottom: 2rem;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-bottom: 5px solid;
-            border-image: linear-gradient(90deg, var(--remax-blue), var(--remax-red)) 1;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
         }
-        .header .logo-remax { height: 3.5rem; margin-bottom: 1.5rem; }
-        .header .logo-league { display: block; margin: 0 auto 1rem auto; max-width: 90%; height: auto; }
+        /* Konfeti Efekti (Basit CSS) */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, transparent 20%, #fef9c3 20%, #fef9c3 21%, transparent 21%, transparent 80%),
+                        radial-gradient(circle, transparent 20%, #bfdbfe 20%, #bfdbfe 21%, transparent 21%, transparent 80%);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: confetti 20s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes confetti {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header .logo-remax { height: 4rem; margin-bottom: 1.5rem; }
+        .header .logo-league { display: block; margin: 0 auto 1.5rem auto; max-width: 90%; height: auto; }
         
-        @keyframes flashing-text {
-            0%, 100% { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--remax-red); }
-            50% { opacity: 0.7; text-shadow: 0 0 5px #fff, 0 0 10px var(--remax-red); }
+        @keyframes champion-pulse {
+            0% { transform: scale(1); text-shadow: 0 0 0 rgba(245, 158, 11, 0); }
+            50% { transform: scale(1.05); text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+            100% { transform: scale(1); text-shadow: 0 0 0 rgba(245, 158, 11, 0); }
         }
-        .flashing-title {
-            font-size: 1.5rem; 
+        
+        .champion-title {
+            font-size: 2rem; 
             font-weight: 900; 
-            color: var(--remax-red);
-            animation: flashing-text 1.5s infinite ease-in-out;
+            background: linear-gradient(to right, var(--remax-red), var(--remax-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: champion-pulse 2s infinite ease-in-out;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .winner-name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--remax-gold);
+            text-shadow: 2px 2px 0px var(--dark-gray);
+            margin-top: 0.5rem;
+            display: block;
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 1rem;
             box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.06);
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             transition: all 0.3s ease-in-out;
             position: relative;
             overflow: hidden;
         }
-        .card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(800px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(0, 84, 166, 0.1), transparent 40%);
-            z-index: 0;
-            transition: opacity 0.3s;
-            opacity: 0;
-        }
-        .card:hover:before { opacity: 1; }
-        .card > * { position: relative; z-index: 1; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 84, 166, 0.15); }
-        .card h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--remax-blue); }
-        .card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -5px rgba(0, 84, 166, 0.15); }
+        .card h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; color: var(--remax-blue); }
+        .card p { font-size: 1.1rem; line-height: 1.6; }
         
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 1.5rem;
-            padding: 1rem 0;
-            background-color: rgba(241, 245, 249, 0.7);
-            border-radius: 0.75rem;
+        /* Kazanan Kartı */
+        .winner-card {
+            background: linear-gradient(135deg, #fffbeb, #fff);
+            border: 2px solid var(--remax-gold);
+            text-align: center;
         }
-        .stat { text-align: center; padding: 0 0.5rem; }
-        .stat .number { font-size: 2.5rem; font-weight: 800; }
-        .stat .label { font-size: 0.875rem; color: var(--medium-gray); text-transform: uppercase; letter-spacing: 0.5px; }
-        .number-blue { color: var(--remax-blue); }
-        .number-green { color: #16a34a; }
-        .number-red { color: var(--remax-red); }
+        .winner-card h2 { color: #b45309; }
+        .winner-card .trophy-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
 
         .schedule-list { list-style: none; padding: 0; margin: 0; }
         .schedule-list li {
-            display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem;
-            background-color: rgba(248, 250, 252, 0.8); border-radius: 0.5rem; margin-bottom: 0.5rem; font-weight: 500;
+            display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem;
+            background-color: rgba(248, 250, 252, 0.8); border-radius: 0.75rem; margin-bottom: 0.75rem; font-weight: 500;
+            border: 1px solid transparent;
         }
-        .schedule-list li.active-stage {
-            background-color: var(--remax-blue);
-            color: white;
-            box-shadow: 0 5px 15px -5px var(--remax-blue);
-            transform: scale(1.02);
-            border: 1px solid #fff;
-        }
-        .schedule-list li.active-stage span:first-child { color: white; }
         
-        .schedule-list li span:first-child { color: var(--remax-blue); font-weight: 600; }
+        .schedule-list li.completed {
+            opacity: 0.7;
+            background-color: #f1f5f9;
+        }
+        .schedule-list li.completed span { text-decoration: line-through; }
+        
         .schedule-list .champion {
             justify-content: center;
-            background: linear-gradient(90deg, #fef9c3, var(--remax-gold));
-            color: #713f12; font-size: 1.125rem; font-weight: 700;
+            flex-direction: column;
+            background: linear-gradient(90deg, #fef9c3, #fde047);
+            color: #713f12; 
+            font-size: 1.25rem; 
+            font-weight: 800;
             border: 2px solid #ca8a04;
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+            transform: scale(1.05);
+            margin-top: 1rem;
+        }
+        .schedule-list .champion span:last-child {
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+            color: var(--remax-blue);
         }
 
-        .divider { border-top: 1px solid #e2e8f0; margin: 1.5rem 0; }
+        .divider { border-top: 1px solid #e2e8f0; margin: 2rem 0; }
 
-        .special-rule {
-            display: flex; align-items: center; padding: 1rem;
-            background-color: #e0f2fe; border-left: 5px solid var(--remax-blue); border-radius: 0.5rem;
-        }
-        .special-rule svg {
-            flex-shrink: 0; width: 2.5rem; height: 2.5rem; color: var(--remax-blue); margin-right: 1rem;
-        }
-        
+        /* Ödül Bölümü */
         @keyframes glowing-prize {
-            0% { box-shadow: 0 0 10px var(--remax-gold), 0 0 20px rgba(253, 224, 71, 0.5); }
-            50% { box-shadow: 0 0 30px var(--remax-gold), 0 0 50px rgba(253, 224, 71, 0.7); }
-            100% { box-shadow: 0 0 10px var(--remax-gold), 0 0 20px rgba(253, 224, 71, 0.5); }
+            0% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); border-color: var(--remax-gold); }
+            50% { box-shadow: 0 0 30px rgba(250, 204, 21, 0.8); border-color: #fff; }
+            100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); border-color: var(--remax-gold); }
         }
         .prize-section {
-            background-image: linear-gradient(160deg, var(--dark-gray) 0%, #1e293b 100%);
-            color: white; padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; text-align: center;
-            border: 2px solid var(--remax-gold); animation: glowing-prize 5s infinite ease-in-out;
+            background-image: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+            color: white; padding: 2.5rem; border-radius: 1.5rem; margin-bottom: 2rem; text-align: center;
+            border: 3px solid var(--remax-gold); animation: glowing-prize 4s infinite ease-in-out;
         }
-        .prize-section h2 { font-size: 2.25rem; font-weight: 800; color: white; }
-        .prize-section .subtitle { color: var(--remax-gold); margin-top: 0.25rem; font-weight: 500; }
-        .prize-section svg.icon { width: 3.5rem; height: 3.5rem; color: var(--remax-gold); margin: 0 auto 0.5rem auto; filter: drop-shadow(0 0 10px var(--remax-gold));}
+        .prize-section h2 { font-size: 2.25rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
+        .prize-section .subtitle { color: var(--remax-gold); font-size: 1.1rem; font-weight: 500; }
+        .prize-section svg.icon { width: 4rem; height: 4rem; color: var(--remax-gold); margin: 0 auto 1rem auto; filter: drop-shadow(0 0 15px rgba(250, 204, 21, 0.6));}
         .prize-list { list-style: none; padding: 0; margin: 2rem 0 0 0; text-align: left; }
         .prize-list li {
-            display: flex; align-items: center; padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.05); border-radius: 0.75rem; margin-bottom: 1rem;
+            display: flex; align-items: center; padding: 1.25rem;
+            background-color: rgba(255, 255, 255, 0.08); border-radius: 1rem; margin-bottom: 1rem;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .prize-list li:hover { background-color: var(--remax-gold); color: var(--dark-gray); transform: scale(1.03); }
-        .prize-list li svg { flex-shrink: 0; width: 2rem; height: 2rem; color: var(--remax-gold); margin-right: 1rem; transition: color 0.3s ease; }
+        .prize-list li:hover { background-color: var(--remax-gold); color: var(--dark-gray); transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .prize-list li svg { flex-shrink: 0; width: 2rem; height: 2rem; color: var(--remax-gold); margin-right: 1.5rem; transition: color 0.3s ease; }
         .prize-list li:hover svg { color: var(--dark-gray); }
 
+        /* Tablo */
         .table-wrapper {
-            background-color: white; border-radius: 1rem;
-            box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.06); overflow: hidden;
+            background-color: white; border-radius: 1.5rem;
+            box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.1); overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
-        .table-header { padding: 1.5rem; border-bottom: 1px solid #e5e7eb; }
-        .table-header h2 { margin: 0; color: var(--dark-gray); }
-        .table-container { max-height: 80vh; overflow-y: auto; }
-        .table-container::-webkit-scrollbar { width: 8px; }
-        .table-container::-webkit-scrollbar-track { background: #f1f1f1; }
-        .table-container::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
-        .table-container::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+        .table-header { padding: 2rem; border-bottom: 1px solid #e5e7eb; background-color: #f8fafc; }
+        .table-header h2 { margin: 0; color: var(--remax-blue); font-size: 1.75rem; }
+        .table-container { overflow-x: auto; }
 
         table { width: 100%; border-collapse: collapse; }
         thead {
-            background: linear-gradient(90deg, var(--remax-blue), #0077c8);
-            position: sticky; top: 0; z-index: 10;
+            background: linear-gradient(90deg, var(--remax-blue), #1e40af);
         }
-        th, td { padding: 1rem 1.5rem; text-align: left; white-space: nowrap; }
-        th { font-size: 0.85rem; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 0.05em; }
-        tbody tr { border-top: 1px solid #f3f4f6; transition: all 0.2s ease-in-out; }
+        th, td { padding: 1.25rem 2rem; text-align: left; white-space: nowrap; }
+        th { font-size: 0.9rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; }
+        tbody tr { border-top: 1px solid #f1f5f9; transition: all 0.2s ease-in-out; }
         
-        .finalist { background-color: #f0fdf4; }
-        .finalist:hover { background-color: #dcfce7; }
-        
-        /* Styles for top 3 in the result table */
-        tr[data-rank="1"] { background: linear-gradient(90deg, #fef9c3, #f0fdf4); }
-        tr[data-rank="2"] { background: linear-gradient(90deg, #f1f5f9, #f0fdf4); } 
-        tr[data-rank="3"] { background: linear-gradient(90deg, #fbe9d7, #f0fdf4); }
-        
-        tr[data-rank="1"] .score { color: #ca8a04; }
-        tr[data-rank="2"] .score { color: #64748b; }
-        tr[data-rank="3"] .score { color: #c2410c; }
-
-        /* Ticket holder style */
-        tr.ticket-holder {
-            background: linear-gradient(90deg, #e0f2fe, #f0fdf4);
+        /* Şampiyon Satırı */
+        tr.champion-row {
+            background: linear-gradient(90deg, #fffbeb, #fff);
+            font-size: 1.2rem;
+            border-left: 6px solid var(--remax-gold);
         }
-        tr.ticket-holder .score {
-            color: var(--remax-blue);
-            font-weight: 800;
-        }
+        tr.champion-row td { padding: 1.5rem 2rem; color: #b45309; font-weight: 700; }
+        tr.champion-row .score { color: #b45309; font-size: 1.5rem; }
+        
+        tr:not(.champion-row):hover { background-color: #f8fafc; }
 
+        .score { font-weight: 800; font-size: 1.2rem; color: var(--dark-gray); }
 
-        .score { font-weight: 700; font-size: 1.1rem; }
-        .finalist .score { color: #16a34a; }
-
-
-        footer { text-align: center; font-size: 0.875rem; color: var(--medium-gray); margin-top: 2.5rem; }
+        footer { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 4rem; margin-bottom: 2rem; }
     </style>
 </head>
 <body>
@@ -223,97 +235,25 @@
         <div class="header">
             <img src="https://storage.mlcdn.com/account_image/1052736/VcYiFNLIf9CH3wUdCSA6PK5XjogFfc2XvO3Ge668.png" alt="RE/MAX Logo" class="logo-remax">
             <img src="https://storage.mlcdn.com/account_image/1052736/odl0FSz3Gtp1hQZcTzHFHdbkKMWap0OTarTRUR3X.png" alt="Recruiting Ligi Logosu" class="logo-league">
-            <p class="flashing-title" id="flashing-title">🔥 BÜYÜK FİNAL HAFTASI BAŞLADI! 🔥</p>
-            <p style="margin-top: 0.5rem; font-weight: 600; color: #64748b;">Final Aşaması (25 Kasım - 30 Kasım)</p>
+            <div class="champion-title">🏆 ŞAMPİYON BELLİ OLDU! 🏆</div>
+            <span class="winner-name">RE/MAX GOAL</span>
         </div>
 
-        <div class="card">
-            <h2>Turnuva Kuralları - BÜYÜK FİNAL</h2>
+        <!-- Tebrik Kartı -->
+        <div class="card winner-card">
+            <span class="trophy-icon">🏆</span>
+            <h2>TEBRİKLER RE/MAX GOAL!</h2>
             <p>
-                Zorlu maratonun sonuna geldik! Yarı Finali başarıyla tamamlayan <strong>11</strong> ofis Büyük Final'de yarışıyor. Bu turun sonunda sadece <strong>1</strong> ŞAMPİYON belirlenecek. Kalan 10 takım bu aşamada elenecek. Hepinize başarılar!
+                Zorlu maratonun ardından RE/MAX Recruiting Ligi'nin şampiyonu <strong>RE/MAX Goal</strong> oldu! <br>
+                Bu büyük başarıda emeği geçen tüm RE/MAX'lileri yürekten kutluyoruz.
             </p>
-            <div class="stats-container">
-                 <div class="stat">
-                    <p class="number number-blue" data-target="11">0</p>
-                    <p class="label">Finalist Takım</p>
-                </div>
-                <div class="stat">
-                    <p class="number number-green" data-target="1">0</p>
-                    <p class="label">Şampiyon</p>
-                </div>
-                <div class="stat">
-                    <p class="number number-red" data-target="10">0</p>
-                    <p class="label">Elenecek Takım</p>
-                </div>
-            </div>
-            
-            <div class="divider"></div>
-
-            <h3>Önemli Bilgilendirme</h3>
-            <div class="special-rule">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                </svg>
-                <p>
-                    <strong>24 Kasım'da</strong> yaptığınız recruiting'ler, <strong>25 Kasım - 30 Kasım (Final Haftası)</strong> sürecine eklenecektir.
-                </p>
-            </div>
-
-            <div class="divider"></div>
-
-            <h3>Eşitlik Durumu Kuralı</h3>
-            <div class="special-rule" style="background-color: #fffbeb; border-left-color: #f59e0b;">
-                <svg style="color: #f59e0b;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.153.34c-1.096 0-2.14-.23-3.162-.682M4.5 5.47c1.01.143 2.01.317 3 .52m-3-.52l-2.62 10.726c-.122.499.106 1.028.589 1.202a5.989 5.989 0 002.153.34c1.096 0 2.14-.23 3.162-.682" />
-                </svg>
-                <p>
-                    Puanlarda eşitlik olması durumunda, sıralamayı belirlemek için ofislerin <strong>2025 Yılı Genel Recruiting</strong> sayısına bakılacaktır.
-                </p>
-            </div>
         </div>
 
-        <div class="card">
-            <h2>Turnuva Takvimi</h2>
-            <ul class="schedule-list">
-                <li><span><s>296 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>28 Ekim - 2 Kasım</s> (TAMAMLANDI)</span></li>
-                <li><span><s>110 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>4 Kasım - 9 Kasım</s> (TAMAMLANDI)</span></li>
-                <li><span><s>77 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>11 Kasım - 16 Kasım</s> (TAMAMLANDI)</span></li>
-                <li><span><s>30 Ofis</s></span><span style="font-weight: 500; text-decoration: line-through;"><s>18 Kasım - 23 Kasım</s> (TAMAMLANDI)</span></li>
-                <li class="active-stage" style="border: 2px solid var(--remax-gold); background-color: #fffbeb; color: var(--dark-gray);"><span>11 Ofis (Finalist)</span><span style="font-weight: 700; color: var(--remax-blue);">25 Kasım - 30 Kasım</span></li>
-                <li class="champion"><span>🏆 1 ŞAMPİYON 🏆</span></li>
-            </ul>
-        </div>
-
-        <div class="prize-section">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 0 1 9 0Z M18.75 10.5h.375c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125h-.375m-13.5 0h-.375a1.125 1.125 0 0 1-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125h.375m13.5 0V9a2.25 2.25 0 0 0-2.25-2.25h-9a2.25 2.25 0 0 0-2.25 2.25v1.5m13.5 0h-13.5" />
-            </svg>
-            <h2>Tek Bir Şampiyon ve Büyük Ödül!</h2>
-            <p class="subtitle">Ligi zirvede tamamlayan ofisi bekleyen muhteşem ödüller:</p>
-            <ul class="prize-list">
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.975-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.05 10.1c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-                    <span>Bu özel ligi unutulmaz kılacak bir <strong>KUPA</strong></span>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" /></svg>
-                    <span><strong>2026 yılında</strong> herhangi bir RE/MAX Türkiye etkinliğine <strong>2 adet bilet</strong></span>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-                    <span>1 Adet <strong>RE/MAX Avrupa Kongresi</strong> katılım hakkı (otel, uçak, kongre bedeli)</span>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                    <span><strong>20 Ücretsiz Power Start Hakkı</strong> (2026 yılı boyunca geçerli)</span>
-                </li>
-            </ul>
-        </div>
-
+        <!-- Puan Tablosu -->
         <div class="table-wrapper">
             <div class="table-header">
-                <h2 id="table-title">Puan Tablosu - 4. Aşama (Yarı Final) Sonuçları</h2>
-                <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">18 Kasım - 23 Kasım</p>
+                <h2>Puan Tablosu - BÜYÜK FİNAL SONUÇLARI</h2>
+                <p style="font-size: 1rem; color: #64748b; margin-top: 0.5rem; font-weight: 500;">25 Kasım - 30 Kasım • Final Haftası</p>
             </div>
             <div class="table-container">
                 <table>
@@ -325,10 +265,49 @@
                         </tr>
                     </thead>
                     <tbody id="leaderboard-body">
-                        <!-- Satırlar JavaScript ile eklenecek -->
+                        <!-- JS ile doldurulacak -->
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prize-section">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 0 1 9 0Z M18.75 10.5h.375c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125h-.375m-13.5 0h-.375a1.125 1.125 0 0 1-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125h.375m13.5 0V9a2.25 2.25 0 0 0-2.25-2.25h-9a2.25 2.25 0 0 0-2.25 2.25v1.5m13.5 0h-13.5" />
+            </svg>
+            <h2>Şampiyonu Bekleyen Büyük Ödüller</h2>
+            <ul class="prize-list">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.975-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.05 10.1c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                    <span>Şampiyonluk Kupası</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" /></svg>
+                    <span><strong>2026 yılında</strong> herhangi bir RE/MAX Türkiye etkinliğine <strong>2 adet bilet</strong></span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                    <span>1 Adet <strong>RE/MAX Avrupa Kongresi</strong> katılım hakkı (otel, uçak, kongre bedeli)</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    <span><strong>20 Ücretsiz Power Start Hakkı</strong> (2026 yılı boyunca geçerli)</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Turnuva Özeti</h2>
+            <ul class="schedule-list">
+                <li class="completed"><span>296 Ofis</span><span>1. Aşama</span></li>
+                <li class="completed"><span>110 Ofis</span><span>2. Aşama</span></li>
+                <li class="completed"><span>77 Ofis</span><span>3. Aşama</span></li>
+                <li class="completed"><span>30 Ofis</span><span>Yarı Final</span></li>
+                <li class="completed"><span>11 Ofis</span><span>Büyük Final</span></li>
+                <li class="champion"><span>🏆 ŞAMPİYON 🏆</span><span>RE/MAX GOAL</span></li>
+            </ul>
         </div>
         
         <footer>
@@ -340,56 +319,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // SKORLARI BURADAN GÜNCELLEYİN
-            // 4. Aşama Sonuçları (11 Ofis Finalist)
-            const initialData = [
-                { name: "RE/MAX Kule", score: 4 },
-                { name: "RE/MAX Goal", score: 3 },
-                { name: "RE/MAX Hane", score: 2 },
-                { name: "RE/MAX Time", score: 1 },
-                { name: "RE/MAX City", score: 1 },
-                { name: "RE/MAX Yıldız", score: 1 },
+            // FİNAL SONUÇLARI
+            const finalData = [
+                { name: "RE/MAX Goal", score: 10 },
+                { name: "RE/MAX Note", score: 8 },
+                { name: "RE/MAX Time", score: 2 },
                 { name: "RE/MAX Müjde", score: 1 },
-                { name: "RE/MAX Toprak", score: 1 },
-                { name: "RE/MAX Lotus", score: 1 },
-                { name: "RE/MAX Note", score: "Ticket" },
-                { name: "RE/MAX İnci", score: "Ticket" }
+                { name: "RE/MAX City", score: 1 },
+                { name: "RE/MAX Hane", score: 1 },
+                { name: "RE/MAX Yıldız", score: 1 },
+                // Diğer finalistler 0 çekmiş olabilir, onları da ekleyebiliriz veya listede olanları gösterebiliriz.
+                // Kullanıcının verdiği liste sadece bu 7 ofis.
+                // Finalde 11 ofis vardı, diğer 4'ü muhtemelen 0 yaptı.
+                // Görsel bütünlük için sadece puan alanları veya tüm finalistleri (0 puanla) ekleyebiliriz.
+                // Kullanıcı "işte final haftası sıralaması" diyerek bu listeyi verdi, buna sadık kalalım.
             ];
 
-
             const leaderboardBody = document.getElementById('leaderboard-body');
-            let officeData = [];
 
             function renderLeaderboard() {
                 leaderboardBody.innerHTML = '';
                 
-                officeData.forEach((office, index) => {
+                finalData.forEach((office, index) => {
                     const rank = index + 1;
                     const row = document.createElement('tr');
                     
-                    // Tüm finalistler yeşil
-                    row.className = 'finalist';
-                    if (office.score === "Ticket") {
-                        row.classList.add('ticket-holder');
-                    }
-                    
-                    row.setAttribute('data-rank', rank);
-
                     let rankIcon = '';
                     let displayScore = office.score;
 
-                    // Puan tablosu için madalyalar ve Bilet gösterimi
-                    if (office.score === "Ticket") {
-                        displayScore = '<span style="display:flex; align-items:center; gap:0.5rem;">🎫 Bilet Kullandı</span>';
-                    } else {
-                        if (rank === 1) rankIcon = '🥇';
-                        else if (rank === 2) rankIcon = '🥈';
-                        else if (rank === 3) rankIcon = '🥉';
+                    if (rank === 1) {
+                        row.className = 'champion-row'; // Şampiyon satırı stili
+                        rankIcon = '🏆';
+                    } else if (rank === 2) {
+                        rankIcon = '🥈';
+                    } else if (rank === 3) {
+                        rankIcon = '🥉';
                     }
 
                     row.innerHTML = `
                         <td>${rank} ${rankIcon}</td>
-                        <td>${office.name}</td>
+                        <td style="${rank === 1 ? 'font-size: 1.3rem;' : ''}">${office.name}</td>
                         <td class="score">${displayScore}</td>
                     `;
                     leaderboardBody.appendChild(row);
@@ -408,45 +377,7 @@
                 });
             });
 
-            // Number counting animation
-            const counters = document.querySelectorAll('.stat .number');
-            const speed = 200; 
-
-            const animateCounters = () => {
-                counters.forEach(counter => {
-                    const updateCount = () => {
-                        const target = +counter.getAttribute('data-target');
-                        const count = +counter.innerText;
-                        const inc = target / speed;
-
-                        if (count < target) {
-                            counter.innerText = Math.ceil(count + inc);
-                            setTimeout(updateCount, 10);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    updateCount();
-                });
-            };
-            
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            const statsContainer = document.querySelector('.stats-container');
-            if(statsContainer) {
-                observer.observe(statsContainer);
-            }
-
-
             function init() {
-                officeData = initialData;
                 renderLeaderboard();
             }
 
