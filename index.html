@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RE/MAX Recruiting Ligi - SÜPER FİNAL</title>
+    <title>RE/MAX Recruiting Ligi - ŞAMPİYON RE/MAX NOTE!</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -44,38 +44,69 @@
             backdrop-filter: blur(10px);
             padding: 2.5rem 2rem;
             border-radius: 1.5rem;
-            box-shadow: 0 20px 50px -12px rgba(0, 84, 166, 0.25);
+            box-shadow: 0 20px 50px -12px rgba(245, 158, 11, 0.3); /* Altın gölge */
             margin-bottom: 2rem;
             text-align: center;
             border: 2px solid rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
         }
+        
+        /* Konfeti Efekti */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, transparent 20%, #fef9c3 20%, #fef9c3 21%, transparent 21%, transparent 80%),
+                        radial-gradient(circle, transparent 20%, #bfdbfe 20%, #bfdbfe 21%, transparent 21%, transparent 80%);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: confetti 20s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes confetti {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
         .header .logo-remax { height: 4rem; margin-bottom: 1.5rem; }
         .header .logo-league { display: block; margin: 0 auto 1.5rem auto; max-width: 90%; height: auto; }
         
-        @keyframes flash-red-blue {
-            0% { color: var(--remax-red); text-shadow: 0 0 10px rgba(213, 30, 39, 0.3); }
-            50% { color: var(--remax-blue); text-shadow: 0 0 10px rgba(0, 84, 166, 0.3); }
-            100% { color: var(--remax-red); text-shadow: 0 0 10px rgba(213, 30, 39, 0.3); }
+        @keyframes champion-pulse {
+            0% { transform: scale(1); text-shadow: 0 0 0 rgba(245, 158, 11, 0); }
+            50% { transform: scale(1.05); text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+            100% { transform: scale(1); text-shadow: 0 0 0 rgba(245, 158, 11, 0); }
         }
         
         .champion-title {
             font-size: 2rem; 
             font-weight: 900; 
-            animation: flash-red-blue 2s infinite ease-in-out;
+            background: linear-gradient(to right, var(--remax-red), var(--remax-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: champion-pulse 2s infinite ease-in-out;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
         }
         
-        .sub-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-gray);
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .winner-name {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--remax-gold);
+            text-shadow: 2px 2px 0px var(--dark-gray);
             margin-top: 0.5rem;
             display: block;
+            animation: bounce 2s infinite;
         }
 
         .card {
@@ -94,42 +125,19 @@
         .card h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; color: var(--remax-blue); }
         .card p { font-size: 1.1rem; line-height: 1.6; }
         
-        /* Düello Kartı */
-        .duel-card {
-            background: linear-gradient(135deg, #eff6ff, #fff);
-            border: 2px solid var(--remax-blue);
+        /* Kazanan Kartı */
+        .winner-card {
+            background: linear-gradient(135deg, #fffbeb, #fff);
+            border: 2px solid var(--remax-gold);
             text-align: center;
         }
-        .duel-card h2 { color: var(--remax-red); }
-        .duel-card .vs-icon {
-            font-size: 3rem;
-            font-weight: 900;
-            margin: 1rem 0;
+        .winner-card h2 { color: #b45309; }
+        .winner-card .trophy-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
             display: block;
-            color: var(--dark-gray);
-            font-style: italic;
+            animation: bounce 2s infinite;
         }
-        .finalists-names {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--remax-blue);
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center; /* Ortalamak için */
-            gap: 2rem; /* Aralıklı olması için */
-            margin-top: 1.5rem;
-            padding: 1rem 0;
-            background-color: rgba(241, 245, 249, 0.7);
-            border-radius: 0.75rem;
-        }
-        .stat { text-align: center; padding: 0 1rem; }
-        .stat .number { font-size: 2.5rem; font-weight: 800; }
-        .stat .label { font-size: 0.875rem; color: var(--medium-gray); text-transform: uppercase; letter-spacing: 0.5px; }
-        .number-blue { color: var(--remax-blue); }
-        .number-green { color: #16a34a; }
-        .number-red { color: var(--remax-red); }
 
         .schedule-list { list-style: none; padding: 0; margin: 0; }
         .schedule-list li {
@@ -144,23 +152,23 @@
         }
         .schedule-list li.completed span { text-decoration: line-through; }
         
-        .schedule-list li.active-stage {
-            background-color: var(--remax-red); /* Final vurgusu kırmızı */
-            color: white;
-            box-shadow: 0 5px 15px -5px var(--remax-red);
-            transform: scale(1.02);
-            border: 1px solid #fff;
-        }
-        .schedule-list li.active-stage span:first-child { color: white; }
-
         .schedule-list .champion {
             justify-content: center;
             background: linear-gradient(90deg, #fef9c3, #fde047);
             color: #713f12; 
-            font-size: 1.25rem; 
+            font-size: 1.5rem; 
             font-weight: 800;
             border: 2px solid #ca8a04;
             margin-top: 1rem;
+            flex-direction: column;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px -5px rgba(250, 204, 21, 0.5);
+            transform: scale(1.02);
+        }
+        .schedule-list .champion span:last-child {
+            color: var(--remax-blue);
+            margin-top: 0.5rem;
+            font-size: 1.75rem;
         }
 
         .divider { border-top: 1px solid #e2e8f0; margin: 2rem 0; }
@@ -200,30 +208,18 @@
         <div class="header">
             <img src="https://storage.mlcdn.com/account_image/1052736/VcYiFNLIf9CH3wUdCSA6PK5XjogFfc2XvO3Ge668.png" alt="RE/MAX Logo" class="logo-remax">
             <img src="https://storage.mlcdn.com/account_image/1052736/odl0FSz3Gtp1hQZcTzHFHdbkKMWap0OTarTRUR3X.png" alt="Recruiting Ligi Logosu" class="logo-league">
-            <div class="champion-title">⚠️ YARIŞMA UZADI! ⚠️</div>
-            <span class="sub-title">SÜPER FİNAL BAŞLIYOR (1 - 7 ARALIK)</span>
+            <div class="champion-title">🏆 2025 ŞAMPİYONU 🏆</div>
+            <span class="winner-name">RE/MAX NOTE</span>
         </div>
 
-        <!-- Düello Kartı -->
-        <div class="card duel-card">
-            <h2>ŞAMPİYONLUK YARIŞI DEVAM EDİYOR!</h2>
+        <!-- Kazanan Kartı -->
+        <div class="card winner-card">
+            <span class="trophy-icon">🏆</span>
+            <h2>TEBRİKLER RE/MAX NOTE!</h2>
             <p>
-                Global yarışmanın bir hafta uzatılması sebebiyle Recruiting Ligi de uzatıldı! Final haftasının en başarılı 2 ofisi, şampiyonluk için son bir kez karşı karşıya geliyor.
+                Nefes kesen Süper Final haftasının ardından, RE/MAX Recruiting Ligi'nin kazananı ve 2025 Şampiyonu <strong>RE/MAX NOTE</strong> oldu! <br>
+                Bu büyük başarıda emeği geçen tüm RE/MAX'lileri yürekten kutluyoruz.
             </p>
-            <div class="vs-icon">RE/MAX GOAL <span style="font-size: 2rem; color: var(--remax-red);">VS</span> RE/MAX NOTE</div>
-            <p class="finalists-names">Sadece 2 Ofis Kaldı. Kazanan Her Şeyi Alır!</p>
-            
-            <div class="stats-container" style="margin-top: 2rem;">
-                 <div class="stat">
-                    <p class="number number-blue">2</p>
-                    <p class="label">Süper Finalist</p>
-                </div>
-                <div class="stat">
-                    <p class="number number-green">1</p>
-                    <p class="label">Şampiyon</p>
-                </div>
-                <!-- Elenen Takım istatistiği kaldırıldı -->
-            </div>
         </div>
         
         <div class="divider"></div>
@@ -236,8 +232,8 @@
                 <li class="completed"><span>77 Ofis</span><span>3. Aşama</span></li>
                 <li class="completed"><span>30 Ofis</span><span>Yarı Final</span></li>
                 <li class="completed"><span>11 Ofis</span><span>Final Haftası</span></li>
-                <li class="active-stage"><span>2 Ofis</span><span style="font-weight: 700;">SÜPER FİNAL (1-7 Aralık)</span></li>
-                <li class="champion"><span>🏆 1 ŞAMPİYON 🏆</span><span>? ? ?</span></li>
+                <li class="completed"><span>2 Ofis</span><span>Süper Final</span></li>
+                <li class="champion"><span>🏆 ŞAMPİYON 🏆</span><span>RE/MAX NOTE</span></li>
             </ul>
         </div>
 
@@ -258,7 +254,7 @@
                     <span><strong>2026 yılında</strong> herhangi bir RE/MAX Türkiye etkinliğine <strong>2 adet bilet</strong></span>
                 </li>
                 <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
                     <span>1 Adet <strong>RE/MAX Avrupa Kongresi</strong> katılım hakkı (otel, uçak, kongre bedeli)</span>
                 </li>
                 <li>
